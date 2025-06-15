@@ -1,12 +1,30 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
+import FlightSearch from '../components/flight/FlightSearch';
+import FlightResults from '../components/flight/FlightResults';
+import SeatSelection from '../components/booking/SeatSelection';
+import BookingConfirmation from '../components/booking/BookingConfirmation';
+import AdminDashboard from '../components/admin/AdminDashboard';
+import LoyaltyProgram from '../components/loyalty/LoyaltyProgram';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
+      <Header />
+      <main className="min-h-screen">
+        <Routes>
+          <Route path="/" element={<FlightSearch />} />
+          <Route path="/results" element={<FlightResults />} />
+          <Route path="/seat-selection" element={<SeatSelection />} />
+          <Route path="/confirmation" element={<BookingConfirmation />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/loyalty" element={<LoyaltyProgram />} />
+        </Routes>
+      </main>
+      <Footer />
     </div>
   );
 };
